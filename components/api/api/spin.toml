@@ -1,12 +1,10 @@
-#:schema https://schemas.spinframework.dev/spin/manifest-v2/latest.json
-
 spin_manifest_version = 2
 
 [application]
 name = "api"
 version = "0.1.0"
-authors = ["Kingdon B <kingdon@urmanac.com>"]
-description = ""
+authors = ["yebyen"]
+description = "Vind-Box Cloud Gateway"
 
 [[trigger.http]]
 route = "/..."
@@ -14,7 +12,10 @@ component = "api"
 
 [component.api]
 source = "target/wasm32-wasip1/release/api.wasm"
-allowed_outbound_hosts = []
+allowed_outbound_hosts = ["https://kubernetes.default.svc"]
+[component.api.variables]
+k8s_token = "{{ k8s_token }}"
+
 [component.api.build]
 command = "cargo build --target wasm32-wasip1 --release"
 watch = ["src/**/*.rs", "Cargo.toml"]
