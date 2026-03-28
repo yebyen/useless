@@ -7,7 +7,7 @@ spec:
   interval: 1m0s
   ref:
     branch: main
-  url: https://github.com/yebyen/useless # Assuming this is the repo URL
+  url: https://github.com/yebyen/useless
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization

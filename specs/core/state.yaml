@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   title: Vind-Box State
   version: 0.1.0
-  description: The single source of truth for the Useless Machine state.
+  description: The single source of truth for the Zero-Split-Brain Useless Machine state.
 
 components:
   schemas:

@@ -1,6 +1,6 @@
 # Vind-Box: The Next-Generation Useless Machine
 
-Vind-Box is an architectural blueprint for building **Zero-Split-Brain** agent systems. It uses WebAssembly (WASM) to ensure that core business logic runs identically across every part of the stack—from Kubernetes Operators to Android apps.
+Vind-Box is an architectural blueprint for building **Zero-Split-Brain** agent systems. It uses WebAssembly (WASM) to ensure that core business logic—the "Brain"—is shared identically across every part of the stack, from Kubernetes Operators to Android apps, eliminating logic duplication and synchronization bugs.
 
 ## 🚀 Key Concepts
 
