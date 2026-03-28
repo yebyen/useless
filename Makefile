@@ -26,7 +26,7 @@ generate-go:
 	cd $(OPERATOR_DIR) && make generate
 
 .PHONY: build
-build: build-brain build-operator build-api
+build: build-brain build-operator build-api build-cli
 
 .PHONY: build-brain
 build-brain:
@@ -39,6 +39,10 @@ build-operator:
 .PHONY: build-api
 build-api:
 	cd $(API_DIR) && spin build
+
+.PHONY: build-cli
+build-cli:
+	cd components/cli && go build -o useless main.go
 
 .PHONY: test
 test: test-brain test-operator
