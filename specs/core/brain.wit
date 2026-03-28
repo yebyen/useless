@@ -1,0 +1,21 @@
+package vind-box:core;
+
+interface brain {
+  /// Pushes the button, increments the daily count and resets the timestamp.
+  /// @param input The JSON PushRequest containing { "state": ..., "now": "..." }.
+  /// @returns The updated JSON UselessMachineState.
+  push-button: func(input: string) -> string;
+
+  /// Gets the nag status for the current state.
+  /// @param input The JSON StatusRequest containing { "state": ..., "now": "..." }.
+  /// @returns The JSON NagStatus.
+  get-status: func(input: string) -> string;
+}
+
+world core-brain {
+  import logger: interface {
+    log: func(msg: string);
+  }
+
+  export brain;
+}

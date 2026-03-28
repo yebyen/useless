@@ -1,0 +1,60 @@
+openapi: 3.0.3
+info:
+  title: Vind-Box State
+  version: 0.1.0
+  description: The single source of truth for the Useless Machine state.
+
+components:
+  schemas:
+    UselessMachineState:
+      type: object
+      required:
+        - daily_count
+        - last_pushed
+      properties:
+        daily_count:
+          type: integer
+          format: int32
+          description: Total number of times the button was pushed today.
+          example: 5
+        last_pushed:
+          type: string
+          format: date-time
+          description: ISO8601 timestamp of the last button push.
+          example: "2026-03-28T12:34:56Z"
+    
+    NagStatus:
+      type: object
+      required:
+        - is_nagging
+      properties:
+        is_nagging:
+          type: boolean
+          description: True if the user has been lazy and needs a nag.
+        message:
+          type: string
+          description: A status message for the user.
+    
+    PushRequest:
+      type: object
+      required:
+        - state
+        - now
+      properties:
+        state:
+          $ref: '#/components/schemas/UselessMachineState'
+        now:
+          type: string
+          format: date-time
+    
+    StatusRequest:
+      type: object
+      required:
+        - state
+        - now
+      properties:
+        state:
+          $ref: '#/components/schemas/UselessMachineState'
+        now:
+          type: string
+          format: date-time
