@@ -7,9 +7,9 @@
 
 **Purpose**: Establish the mobile project foundation.
 
-- [ ] T001 Create `components/android/` directory
-- [ ] T002 Initialize `gradle` wrapper and project structure
-- [ ] T003 Create `MainActivity.kt` with basic Compose layout
+- [x] T001 Create `components/android/` directory
+- [x] T002 Initialize `gradle` wrapper and project structure
+- [x] T003 Create `MainActivity.kt` with basic Compose layout
 
 ---
 
@@ -17,9 +17,9 @@
 
 **Purpose**: Connect the mobile app to the Cloud Gateway.
 
-- [ ] T004 Add Ktor dependencies to `build.gradle.kts`
-- [ ] T005 Implement `UselessMachineStatus` data class
-- [ ] T006 Implement `VindBoxClient` for `/status` and `/push`
+- [x] T004 Add Ktor dependencies to `build.gradle.kts`
+- [x] T005 Implement `UselessMachineStatus` data class
+- [x] T006 Implement `VindBoxClient` for `/status` and `/push`
 
 ---
 
@@ -27,9 +27,9 @@
 
 **Purpose**: Build the user interface.
 
-- [ ] T007 Implement the main screen with `Button` and `Text` components
-- [ ] T008 Add `ViewModel` to manage state and API calls
-- [ ] T009 Implement nag state visual indicator (e.g., color change)
+- [x] T007 Implement the main screen with `Button` and `Text` components
+- [x] T008 Add `ViewModel` to manage state and API calls
+- [x] T009 Implement nag state visual indicator (e.g., color change)
 
 ---
 
@@ -37,8 +37,8 @@
 
 **Purpose**: Verify the mobile piece of the puzzle.
 
-- [ ] T010 Build the APK via `./gradlew assembleDebug`
-- [ ] T011 Document emulator setup for Spin API connectivity
+- [x] T010 Build the APK via `./gradlew assembleDebug`
+- [x] T011 Document emulator setup for Spin API connectivity
 
 ---
 
