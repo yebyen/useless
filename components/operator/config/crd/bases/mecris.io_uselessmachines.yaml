@@ -1,0 +1,68 @@
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.20.1
+  name: uselessmachines.mecris.io
+spec:
+  group: mecris.io
+  names:
+    kind: UselessMachine
+    listKind: UselessMachineList
+    plural: uselessmachines
+    singular: uselessmachine
+  scope: Namespaced
+  versions:
+  - name: v1alpha1
+    schema:
+      openAPIV3Schema:
+        description: UselessMachine is the Schema for the uselessmachines API
+        properties:
+          apiVersion:
+            description: |-
+              APIVersion defines the versioned schema of this representation of an object.
+              Servers should convert recognized schemas to the latest internal value, and
+              may reject unrecognized values.
+              More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+            type: string
+          kind:
+            description: |-
+              Kind is a string value representing the REST resource this object represents.
+              Servers may infer this from the endpoint the client submits requests to.
+              Cannot be updated.
+              In CamelCase.
+              More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: UselessMachineSpec defines the desired state of UselessMachine
+            properties:
+              action:
+                description: Action is the requested operation (e.g., "push")
+                type: string
+            type: object
+          status:
+            description: UselessMachineStatus defines the observed state of UselessMachine
+            properties:
+              dailyCount:
+                description: DailyCount is the total number of button pushes today
+                format: int32
+                type: integer
+              isNagging:
+                description: IsNagging indicates if the user needs to be nagged
+                type: boolean
+              lastPushed:
+                description: LastPushed is the ISO8601 timestamp of the last push
+                type: string
+            required:
+            - dailyCount
+            - isNagging
+            - lastPushed
+            type: object
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
