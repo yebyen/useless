@@ -19,15 +19,21 @@ As a user, I want a large button on my phone so that I can push it and see my da
 
 1. **Given** the app is open, **When** I click "Push Button," **Then** the screen updates to reflect the new count returned by the API.
 
----
+### User Story 2 - Physical Box Feedback (Priority: P1)
 
-### User Story 2 - Mobile Nag Notification (Priority: P2)
+As a user, I want to see when the machine is "flipping the switch back" so that it feels like a real useless box.
 
-As a user, I want the app to show me my current status so that I know if I'm being nagged.
+**Why this priority**: Without the back-and-forth reaction, it's just a counter, not a useless machine.
 
-**Why this priority**: Provides mobile-first feedback on the nag state.
+**Acceptance Scenarios**:
+1. **Given** the switch is idle, **When** I push it, **Then** the UI shows a "Switch Flipped" state.
+2. **Given** the Switch is flipped, **When** the Operator processes the action, **Then** the UI shows a "Machine Reacting" state before returning to idle.
 
-**Independent Test**: The app polls the `/status` endpoint and changes its background color or text when `is_nagging` is true.
+### User Story 3 - UI Modes (Priority: P2)
+
+As a user, I want to toggle between "Verbose" and "Quiet" modes.
+
+**Why this priority**: Allows for both deep status visibility and a simple, playful interaction.
 
 ---
 
@@ -37,8 +43,8 @@ As a user, I want the app to show me my current status so that I know if I'm bei
 
 - **FR-011**: System MUST provide an Android application built with Kotlin/Compose.
 - **FR-012**: Android app MUST consume the Spin API (`/push` and `/status` endpoints).
-- **FR-013**: Android app SHOULD eventually use the WASM Brain locally for offline logic (Future).
-- **FR-014**: Android app MUST display the `dailyCount` and `isNagging` status.
+- **FR-013**: Android app SHOULD support a "Verbose" mode (showing all K8s metadata) and a "Quiet" mode (pure useless box experience).
+- **FR-014**: Android app MUST display the `machine_state` (idle, requested, flippingBack).
 
 ### Technical Requirements
 

@@ -40,6 +40,7 @@ As a user, I want the Spin API to show the *actual* status of the `UselessMachin
 - **FR-002**: Flux MUST monitor the `main` branch of this repository.
 - **FR-003**: Spin API MUST read the `UselessMachine` status from the K8s API.
 - **FR-004**: Spin API MUST patch the `UselessMachine` spec to trigger a "push" action.
+- **FR-005**: Spin API SHOULD support a long-polling or webhook mechanism to notify clients of state changes instantly.
 
 ### Technical Requirements
 
