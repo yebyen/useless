@@ -1,7 +1,7 @@
 import extism
 import json
 import os
-from .models import UselessMachineState, NagStatus, PushRequest, StatusRequest
+from models import UselessMachineState, NagStatus, PushRequest, StatusRequest
 
 class WasmBridge:
     def __init__(self, wasm_path: str):

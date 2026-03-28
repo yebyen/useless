@@ -28,4 +28,19 @@ This document records the key architectural decisions made during the initializa
 -   **Runtime:** Extism (initially) with a path toward the WASM Component Model.
 -   **Orchestration:** `controller-runtime` (Go) for the Operator.
 -   **API:** Rust (Spin) for the Cloud Gateway.
+-   **MCP:** Python (FastMCP) for LLM tools.
 -   **E2E:** GitHub Actions + `kind` for automated cluster testing.
+
+## ⚖️ MCP & Hosting Decisions
+
+### 1. K8s-Aware MCP Server
+-   **Decision:** The MCP server interacts directly with the Kubernetes API using the `kubernetes` Python library.
+-   **Rationale:** To ensure the LLM always sees the true state of the machine (and not a cached or out-of-sync value), the tools fetch the current state from the CRD before invoking the WASM Brain.
+
+### 2. Platform-as-a-Product (Init Containers)
+-   **Decision:** Deliver the WASM Brain to Kubernetes-hosted components (Operator, MCP, API) via Init Containers.
+-   **Rationale:** Using an Init Container to pull the `vind-box-brain` OCI artifact into a shared volume allows the business logic to be updated independently of the host's container image, ensuring all parts of the system pick up new logic simultaneously.
+
+### 3. Abstract Tool Interface
+-   **Decision:** MCP tools (e.g., `push_button`) are abstract and do not require Kubernetes-specific arguments (like namespace or resource name).
+-   **Rationale:** The LLM agent should focus on business logic. The MCP server handles the mapping to the `global` instance in Kubernetes internally.

@@ -64,6 +64,10 @@ flux-bootstrap:
 	@echo "Bootstrapping Flux into the local cluster..."
 	kubectl apply -f deploy/clusters/my-cluster/vind-box.yaml
 
+.PHONY: run-mcp
+run-mcp:
+	cd components/mcp && uv run python server.py
+
 .PHONY: e2e-test
 e2e-test:
 	@echo "Running E2E tests in Kind cluster..."
