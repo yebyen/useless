@@ -6,15 +6,20 @@ version = "0.1.0"
 authors = ["yebyen"]
 description = "Vind-Box Zero-Split-Brain Cloud Gateway"
 
+[variables]
+k8s_token = { default = "mock-token" }
+k8s_api_url = { default = "https://kubernetes.default.svc" }
+
 [[trigger.http]]
 route = "/..."
 component = "api"
 
 [component.api]
 source = "target/wasm32-wasip1/release/api.wasm"
-allowed_outbound_hosts = ["https://kubernetes.default.svc"]
+allowed_outbound_hosts = ["https://kubernetes.default.svc", "https://localhost:12196", "http://localhost:8001"]
 [component.api.variables]
 k8s_token = "{{ k8s_token }}"
+k8s_api_url = "{{ k8s_api_url }}"
 
 [component.api.build]
 command = "cargo build --target wasm32-wasip1 --release"

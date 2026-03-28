@@ -1,0 +1,85 @@
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::DnsError(DnsErrorPayload { rcode: Some("address not available"), info-code: Some(0) })
+Handler returned an error: ErrorCode::TlsProtocolError
+Handler returned an error: ErrorCode::TlsProtocolError
+Handler returned an error: ErrorCode::TlsProtocolError
+Handler returned an error: ErrorCode::TlsProtocolError
+Handler returned an error: ErrorCode::TlsProtocolError
+Handler returned an error: ErrorCode::TlsProtocolError
+Handler returned an error: ErrorCode::TlsProtocolError
+Handler returned an error: ErrorCode::TlsProtocolError
+Handler returned an error: ErrorCode::TlsProtocolError
+Handler returned an error: ErrorCode::TlsProtocolError
+Handler returned an error: ErrorCode::TlsProtocolError
+Handler returned an error: ErrorCode::TlsProtocolError
+Handler returned an error: ErrorCode::TlsProtocolError
+Handler returned an error: ErrorCode::TlsProtocolError
+Handler returned an error: ErrorCode::TlsProtocolError
+Handler returned an error: ErrorCode::TlsProtocolError
+Handler returned an error: Machine has no status yet
+Handler returned an error: Machine has no status yet
+Handler returned an error: Machine has no status yet
+Handler returned an error: Machine has no status yet
+Handler returned an error: Machine has no status yet
+Handler returned an error: Machine has no status yet
+Handler returned an error: Machine has no status yet
+Handler returned an error: Machine has no status yet
+Handler returned an error: Machine has no status yet
+Handler returned an error: Machine has no status yet
+Handler returned an error: Machine has no status yet
+Handler returned an error: Machine has no status yet

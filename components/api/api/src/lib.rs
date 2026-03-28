@@ -37,7 +37,8 @@ async fn handle_api(req: Request) -> Result<impl IntoResponse> {
 
 async fn get_status() -> Result<Response> {
     let token = variables::get("k8s_token").unwrap_or_else(|_| "mock-token".to_string());
-    let api_url = "https://kubernetes.default.svc/apis/mecris.io/v1alpha1/namespaces/default/uselessmachines/global";
+    let base_url = variables::get("k8s_api_url").unwrap_or_else(|_| "https://kubernetes.default.svc".to_string());
+    let api_url = format!("{}/apis/mecris.io/v1alpha1/namespaces/default/uselessmachines/global", base_url);
 
     let req = Request::builder()
         .method(Method::Get)
@@ -47,8 +48,9 @@ async fn get_status() -> Result<Response> {
 
     // Use Spin's HTTP client to call the K8s API
     let resp: Response = spin_sdk::http::send(req).await?;
+    let status = *resp.status();
 
-    if resp.status().is_success() {
+    if (200..300).contains(&status) {
         let body = resp.body();
         let resource: K8sResource = serde_json::from_slice(body)?;
         let status = resource.status.context("Machine has no status yet")?;
@@ -61,15 +63,16 @@ async fn get_status() -> Result<Response> {
             .build())
     } else {
         Ok(Response::builder()
-            .status(resp.status())
-            .body(format!("K8s API error: {:?}", resp.status()))
+            .status(status)
+            .body(format!("K8s API error: {:?}", status))
             .build())
     }
 }
 
 async fn push_button() -> Result<Response> {
     let token = variables::get("k8s_token").unwrap_or_else(|_| "mock-token".to_string());
-    let api_url = "https://kubernetes.default.svc/apis/mecris.io/v1alpha1/namespaces/default/uselessmachines/global";
+    let base_url = variables::get("k8s_api_url").unwrap_or_else(|_| "https://kubernetes.default.svc".to_string());
+    let api_url = format!("{}/apis/mecris.io/v1alpha1/namespaces/default/uselessmachines/global", base_url);
 
     // Patch spec.action to "push"
     let patch = serde_json::json!({
@@ -87,16 +90,17 @@ async fn push_button() -> Result<Response> {
         .build();
 
     let resp: Response = spin_sdk::http::send(req).await?;
+    let status = *resp.status();
 
-    if resp.status().is_success() {
+    if (200..300).contains(&status) {
         Ok(Response::builder()
             .status(200)
             .body("Push requested")
             .build())
     } else {
         Ok(Response::builder()
-            .status(resp.status())
-            .body(format!("K8s Patch error: {:?}", resp.status()))
+            .status(status)
+            .body(format!("K8s Patch error: {:?}", status))
             .build())
     }
 }

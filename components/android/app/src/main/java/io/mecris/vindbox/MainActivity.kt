@@ -59,7 +59,7 @@ fun UselessMachineScreen(
             .background(backgroundColor)
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Alignment.CenterVertically
+        verticalArrangement = Arrangement.Center
     ) {
         Text(
             text = "Vind-Box",
