@@ -20,13 +20,17 @@ pub fn push_button(mut state: UselessMachineState, now: String) -> UselessMachin
 
 pub fn is_nagging(state: &UselessMachineState, now: String) -> bool {
     // threshold: 24h
-    // Since we're in WASM and don't want to bring in complex date-time libraries if not needed,
-    // we'll assume the host gives us timestamps that we can compare or we use a simple parsing logic.
-    // For now, let's keep it simple: if last_pushed is different from now, it's a candidate.
-    // Real implementation should parse ISO8601 or use Unix timestamps.
-    
-    // Placeholder for real duration check
-    state.last_pushed != now 
+    let last = match chrono::DateTime::parse_from_rfc3339(&state.last_pushed) {
+        Ok(t) => t,
+        Err(_) => return true, // Fail to nagging if invalid
+    };
+    let current = match chrono::DateTime::parse_from_rfc3339(&now) {
+        Ok(t) => t,
+        Err(_) => return false,
+    };
+
+    let duration = current.signed_duration_since(last);
+    duration.num_hours() >= 24
 }
 
 #[cfg(test)]
