@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   title: Vind-Box State
   version: 0.1.0
-  description: The single source of truth for the Useless Machine state.
+  description: The single source of truth for the Zero-Split-Brain Useless Machine state.
 
 components:
   schemas:
@@ -11,6 +11,7 @@ components:
       required:
         - daily_count
         - last_pushed
+        - machine_state
       properties:
         daily_count:
           type: integer
@@ -22,6 +23,11 @@ components:
           format: date-time
           description: ISO8601 timestamp of the last button push.
           example: "2026-03-28T12:34:56Z"
+        machine_state:
+          type: string
+          enum: [idle, requested, flippingBack]
+          description: The physical state of the useless box switch.
+          example: "idle"
     
     NagStatus:
       type: object

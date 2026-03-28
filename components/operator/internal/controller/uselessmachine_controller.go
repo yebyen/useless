@@ -51,6 +51,9 @@ func (r *UselessMachineReconciler) Reconcile(ctx context.Context, req ctrl.Reque
 		// Update machine status
 		machine.Status.DailyCount = nextState.DailyCount
 		machine.Status.LastPushed = nextState.LastPushed
+		if err := r.Status().Update(ctx, &machine); err != nil {
+			return ctrl.Result{}, err
+		}
 		
 		// Clear action once processed
 		machine.Spec.Action = ""
