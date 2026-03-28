@@ -7,10 +7,10 @@
 
 **Purpose**: Define the formal contracts that govern the system.
 
-- [ ] T001 Create `specs/core/state.yaml` with `UselessMachineState` (OpenAPI)
-- [ ] T002 Create `specs/core/brain.wit` with function signatures (WIT)
-- [ ] T003 [P] Create root `Makefile` with `generate` and `test` targets
-- [ ] T004 [P] Create `specify.yaml` to map specs to component directories
+- [x] T001 Create `specs/core/state.yaml` with `UselessMachineState` (OpenAPI)
+- [x] T002 Create `specs/core/brain.wit` with function signatures (WIT)
+- [x] T003 [P] Create root `Makefile` with `generate` and `test` targets
+- [x] T004 [P] Create `specify.yaml` to map specs to component directories
 
 ---
 
@@ -18,11 +18,11 @@
 
 **Purpose**: Initialize the polyglot projects.
 
-- [ ] T005 Initialize Rust project in `components/brain`
-- [ ] T006 Initialize Go project in `components/operator` using `kubebuilder init`
-- [ ] T007 Configure `components/brain` for WASM/WASI target
-- [ ] T008 [P] Add `serde` and `serde_json` to `components/brain`
-- [ ] T009 [P] Add `extism` and `controller-runtime` to `components/operator`
+- [x] T005 Initialize Rust project in `components/brain`
+- [x] T006 Initialize Go project in `components/operator` using `kubebuilder init`
+- [x] T007 Configure `components/brain` for WASM/WASI target
+- [x] T008 [P] Add `serde` and `serde_json` to `components/brain`
+- [x] T009 [P] Add `extism` and `controller-runtime` to `components/operator`
 
 ---
 
@@ -33,14 +33,14 @@
 **Independent Test**: `cargo test` in `components/brain` verifies `push_button` logic.
 
 ### Tests for User Story 1
-- [ ] T010 [US1] Write failing unit test for `push_button` in `components/brain/src/logic.rs`
-- [ ] T011 [US1] Write failing test for JSON serialization of `UselessMachineState`
+- [x] T010 [US1] Write failing unit test for `push_button` in `components/brain/src/logic.rs`
+- [x] T011 [US1] Write failing test for JSON serialization of `UselessMachineState`
 
 ### Implementation for User Story 1
-- [ ] T012 [US1] Generate Rust types from `specs/core/state.yaml`
-- [ ] T013 [US1] Implement `push_button` logic in `components/brain/src/logic.rs`
-- [ ] T014 [US1] Export `push_button` via Extism/WASM in `components/brain/src/lib.rs`
-- [ ] T015 [US1] Verify T010 and T011 pass
+- [x] T012 [US1] Generate Rust types from `specs/core/state.yaml`
+- [x] T013 [US1] Implement `push_button` logic in `components/brain/src/logic.rs`
+- [x] T014 [US1] Export `push_button` via Extism/WASM in `components/brain/src/lib.rs`
+- [x] T015 [US1] Verify T010 and T011 pass
 
 ---
 
@@ -51,13 +51,13 @@
 **Independent Test**: `cargo test` in `components/brain` verifies `nag_state` logic.
 
 ### Tests for User Story 2
-- [ ] T016 [US2] Write failing unit test for `is_nagging` logic
-- [ ] T017 [US2] Write failing test for threshold-based time calculation
+- [x] T016 [US2] Write failing unit test for `is_nagging` logic
+- [x] T017 [US2] Write failing test for threshold-based time calculation
 
 ### Implementation for User Story 2
-- [ ] T018 [US2] Implement `is_nagging` logic in `components/brain/src/logic.rs`
-- [ ] T019 [US2] Export `get_status` via Extism/WASM in `components/brain/src/lib.rs`
-- [ ] T020 [US2] Verify T016 and T017 pass
+- [x] T018 [US2] Implement `is_nagging` logic in `components/brain/src/logic.rs`
+- [x] T019 [US2] Export `get_status` via Extism/WASM in `components/brain/src/lib.rs`
+- [x] T020 [US2] Verify T016 and T017 pass
 
 ---
 
@@ -65,10 +65,10 @@
 
 **Purpose**: Load and execute the WASM Brain from the Go Reconciler.
 
-- [ ] T021 Generate Go types from `specs/core/state.yaml`
-- [ ] T022 Implement `WasmRunner` in `components/operator/internal/wasm/runner.go`
-- [ ] T023 Integrate `WasmRunner` into the Operator Reconciler loop
-- [ ] T024 Write integration test in Go that loads the compiled `.wasm` and calls `push_button`
+- [x] T021 Generate Go types from `specs/core/state.yaml`
+- [x] T022 Implement `WasmRunner` in `components/operator/internal/wasm/runner.go`
+- [x] T023 Integrate `WasmRunner` into the Operator Reconciler loop
+- [x] T024 Write integration test in Go that loads the compiled `.wasm` and calls `push_button`
 
 ---
 
