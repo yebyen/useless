@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vind-box-operator
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vind-box-operator
+  template:
+    metadata:
+      labels:
+        app: vind-box-operator
+    spec:
+      containers:
+      - name: manager
+        image: ghcr.io/yebyen/vind-box-operator:v0.1.0
+        args:
+        - "--wasm-path=/etc/brain/brain.wasm"
+        volumeMounts:
+        - name: brain
+          mountPath: /etc/brain
+      volumes:
+      - name: brain
+        emptyDir: {} # For now, we assume an init container or sidecar provides it
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: vind-box-operator
+  namespace: default
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: vind-box-operator-admin
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin # MVP over-privilege
+subjects:
+- kind: ServiceAccount
+  name: vind-box-operator
+  namespace: default
