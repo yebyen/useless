@@ -1,0 +1,9 @@
+[project]
+name = "vind-box-mcp"
+version = "0.1.0"
+description = "Vind-Box Zero-Split-Brain MCP Server"
+dependencies = [
+    "mcp",
+    "extism",
+    "pydantic",
+]
