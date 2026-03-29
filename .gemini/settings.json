@@ -1,0 +1,22 @@
+{
+  "mcpServers": {
+    "vind-box": {
+      "command": "uv",
+      "args": [
+        "--quiet",
+        "run",
+        "--no-sync",
+        "--offline",
+        "--project",
+        "/Users/yebyen/w/useless/components/mcp",
+        "python3",
+        "/Users/yebyen/w/useless/components/mcp/server.py",
+        "--stdio"
+      ],
+      "env": {
+        "PYTHONPATH": "/Users/yebyen/w/useless/components/mcp",
+        "BRAIN_WASM_PATH": "/Users/yebyen/w/useless/components/brain/target/wasm32-wasip1/release/brain.wasm"
+      }
+    }
+  }
+}

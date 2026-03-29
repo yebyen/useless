@@ -16,8 +16,7 @@ component = "api"
 
 [component.api]
 source = "target/wasm32-wasip1/release/api.wasm"
-files = [ "cluster-ca.crt" ]
-allowed_outbound_hosts = ["https://kubernetes.default.svc", "https://10.43.0.1:443", "http://*:*"]
+allowed_outbound_hosts = ["https://kubernetes.default.svc", "https://localhost:12196", "http://localhost:8001"]
 [component.api.variables]
 k8s_token = "{{ k8s_token }}"
 k8s_api_url = "{{ k8s_api_url }}"

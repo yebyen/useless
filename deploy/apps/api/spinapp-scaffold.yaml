@@ -1,0 +1,8 @@
+apiVersion: core.spinkube.dev/v1alpha1
+kind: SpinApp
+metadata:
+  name: vind-box-api
+spec:
+  image: "ttl.sh/vind-box-api:1h"
+  executor: containerd-shim-spin
+  replicas: 2

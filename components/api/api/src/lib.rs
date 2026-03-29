@@ -27,6 +27,8 @@ async fn handle_api(req: Request) -> Result<impl IntoResponse> {
         return get_status().await;
     } else if path.contains("/push") {
         return push_button().await;
+    } else if path.contains("/health") {
+        return verify_outbound().await;
     }
 
     Ok(Response::builder()
@@ -35,8 +37,24 @@ async fn handle_api(req: Request) -> Result<impl IntoResponse> {
         .build())
 }
 
+async fn verify_outbound() -> Result<Response> {
+    let req = Request::builder()
+        .method(Method::Get)
+        .uri("https://google.com")
+        .build();
+    let _resp: Response = spin_sdk::http::send(req).await?;
+    Ok(Response::builder()
+        .status(200)
+        .body("Outbound HTTPS works")
+        .build())
+}
+
+async fn get_token() -> String {
+    variables::get("k8s_token").unwrap_or_else(|_| "mock-token".to_string())
+}
+
 async fn get_status() -> Result<Response> {
-    let token = variables::get("k8s_token").unwrap_or_else(|_| "mock-token".to_string());
+    let token = get_token().await;
     let base_url = variables::get("k8s_api_url").unwrap_or_else(|_| "https://kubernetes.default.svc".to_string());
     let api_url = format!("{}/apis/mecris.io/v1alpha1/namespaces/default/uselessmachines/global", base_url);
 
@@ -46,7 +64,6 @@ async fn get_status() -> Result<Response> {
         .header("authorization", format!("Bearer {}", token))
         .build();
 
-    // Use Spin's HTTP client to call the K8s API
     let resp: Response = spin_sdk::http::send(req).await?;
     let status = *resp.status();
 
@@ -70,11 +87,10 @@ async fn get_status() -> Result<Response> {
 }
 
 async fn push_button() -> Result<Response> {
-    let token = variables::get("k8s_token").unwrap_or_else(|_| "mock-token".to_string());
+    let token = get_token().await;
     let base_url = variables::get("k8s_api_url").unwrap_or_else(|_| "https://kubernetes.default.svc".to_string());
     let api_url = format!("{}/apis/mecris.io/v1alpha1/namespaces/default/uselessmachines/global", base_url);
 
-    // Patch spec.action to "push"
     let patch = serde_json::json!({
         "spec": {
             "action": "push"

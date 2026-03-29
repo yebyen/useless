@@ -4,6 +4,15 @@
 **Created**: 2026-03-28  
 **Status**: Draft  
 
+## Implementation Findings
+
+### Successful Cluster Setup (Validated 2026-03-28)
+- **Tooling**: `k3d` is the preferred local cluster provider.
+- **Node Image**: `ghcr.io/spinframework/containerd-shim-spin/k3d:v0.23.0` (Bundles the `containerd-shim-spin-v2`).
+- **Operator**: `spin-operator` v0.6.1 via `oci://ghcr.io/spinframework/charts/spin-operator`.
+- **Runtime Class**: `wasmtime-spin-v2` (Handler: `spin`).
+- **Lesson Learned**: `kwasm-operator` is deprecated/incompatible with minimal k3s node images used by k3d; use the official adapter image or the new `runtime-class-manager`.
+
 ## User Scenarios & Testing
 
 ### User Story 1 - Deploying Spin App to Kubernetes (Priority: P1)
