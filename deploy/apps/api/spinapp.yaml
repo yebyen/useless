@@ -1,0 +1,8 @@
+apiVersion: core.spinoperator.dev/v1alpha1
+kind: SpinApp
+metadata:
+  name: vind-box-api
+  namespace: default
+spec:
+  image: "ttl.sh/vind-box-api:1h"
+  replicas: 1

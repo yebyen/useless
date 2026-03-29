@@ -28,6 +28,13 @@ generate-go:
 .PHONY: build
 build: build-brain build-operator build-api build-cli
 
+.PHONY: push
+push: push-api
+
+.PHONY: push-api
+push-api: build-api
+	cd $(API_DIR) && spin registry push ttl.sh/vind-box-api:1h
+
 .PHONY: build-brain
 build-brain:
 	cd $(BRAIN_DIR) && cargo build --target wasm32-wasip1 --release

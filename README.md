@@ -25,9 +25,17 @@ go run main.go --wasm-path=../brain/target/wasm32-wasip1/release/brain.wasm
 ```
 
 ### Run the API (Spin)
+
+**Local Testing:**
 ```bash
 cd components/api/api
 spin up --variable k8s_api_url=http://localhost:8001
+```
+
+**Cluster Deployment (SpinKube):**
+Build and push the OCI artifact, then let Flux deploy it to your cluster. This exposes the API via NodePort `30080` to your local network.
+```bash
+make push-api
 ```
 
 ### Use the CLI
@@ -49,4 +57,4 @@ Add the following to your Gemini/Claude settings:
 Detailed specs and architectural records are in the `.specify/` directory.
 
 ---
-**Version:** 0.0.1 | **License:** MIT | *Built with Gemini CLI*
+**Version:** 0.0.2 | **License:** MIT | *Built with Gemini CLI*
