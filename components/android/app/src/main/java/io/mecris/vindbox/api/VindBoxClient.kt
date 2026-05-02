@@ -7,9 +7,10 @@ import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.client.request.*
 import io.ktor.serialization.kotlinx.json.*
 import kotlinx.serialization.json.Json
+import io.mecris.vindbox.BuildConfig
 
 class VindBoxClient(
-    private val baseUrl: String = "http://10.0.2.2:3000"
+    private val baseUrl: String = BuildConfig.API_URL
 ) {
     private val client = HttpClient(CIO) {
         install(ContentNegotiation) {

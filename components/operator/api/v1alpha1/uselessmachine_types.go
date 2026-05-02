@@ -23,6 +23,10 @@ type UselessMachineStatus struct {
 
 // +kubebuilder:object:root=true
 // +kubebuilder:subresource:status
+// +kubebuilder:printcolumn:name="Count",type="integer",JSONPath=".status.dailyCount",description="Total number of button pushes today"
+// +kubebuilder:printcolumn:name="Last Pushed",type="string",JSONPath=".status.lastPushed",description="ISO8601 timestamp of the last push"
+// +kubebuilder:printcolumn:name="Nagging",type="boolean",JSONPath=".status.isNagging",description="Indicates if the user needs to be nagged"
+// +kubebuilder:printcolumn:name="Age",type="date",JSONPath=".metadata.creationTimestamp"
 
 // UselessMachine is the Schema for the uselessmachines API
 type UselessMachine struct {

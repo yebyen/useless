@@ -1,0 +1,13 @@
+FROM golang:1.26 AS builder
+WORKDIR /app
+COPY components/operator/go.mod components/operator/go.sum ./
+RUN go mod download
+COPY components/operator/ .
+RUN CGO_ENABLED=0 GOOS=linux go build -o manager main.go
+
+FROM gcr.io/distroless/static:nonroot
+WORKDIR /
+COPY --from=builder /app/manager .
+COPY components/brain/target/wasm32-wasip1/release/brain.wasm /etc/brain/brain.wasm
+USER 65532:65532
+ENTRYPOINT ["/manager", "--wasm-path=/etc/brain/brain.wasm"]

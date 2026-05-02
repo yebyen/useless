@@ -48,6 +48,11 @@ As a user, I want the Spin API to show the *actual* status of the `UselessMachin
 - **TR-005**: Spin API MUST use the `kubernetes.default.svc` endpoint.
 - **TR-006**: Spin API MUST authorize the Kubernetes host in `spin.toml`.
 
+## Implementation Notes (v0.0.2 -> v0.1.0)
+
+- **CA Certificate Injection (Resolved via Concession):** The `containerd-shim-spin` currently lacks an ergonomic way to mount the cluster's CA certificate necessary for verifying `https://kubernetes.default.svc`. To unblock v0.0.2, we use the `spintainer-v4` (`SpinAppExecutor`), which deploys the app as a standard container (`ghcr.io/spinframework/spin:v4.0.0`). This allows standard volume mounting of the CA cert and service account token. *Future Goal: Contribute upstream to support this natively in the shim.*
+- **Real-Time Client Updates (v0.1.0):** To address **FR-005**, the Android client currently relies on 5-second HTTP polling. Version 0.1.0 will implement WebSockets or SSE in the Spin API. Because we run this in SpinKube (rather than a strictly scale-to-zero serverless cloud), we can fully support long-lived persistent connections for real-time reactivity.
+
 ## Success Criteria *(mandatory)*
 
 ### Measurable Outcomes
