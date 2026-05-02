@@ -85,7 +85,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: wasm-modules
-          path: components/brain/target/wasm32-wasip1/release/
+          path: .
 
       - name: Debug - List Files
         run: ls -R components/brain/target/
