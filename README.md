@@ -53,5 +53,8 @@ Add the following to your Gemini/Claude settings:
 *   [Architecture Details](ARCHITECTURE.md)
 *   Detailed specs and architectural records are in the `.specify/` directory.
 
+## ⚠️ Known Limitations
+For architectural constraints, including TLS/CA certificate issues when calling the Kubernetes API from Spin components, please see [LIMITATIONS.md](./LIMITATIONS.md).
+
 ---
 **Version:** 0.0.2 | **License:** MIT | *Built with Gemini CLI*

@@ -87,6 +87,9 @@ jobs:
           name: wasm-modules
           path: components/brain/target/wasm32-wasip1/release/
 
+      - name: Debug - List Files
+        run: ls -R components/brain/target/
+
       - name: Build and Push Operator
         uses: docker/build-push-action@v5
         with:

@@ -1,0 +1,11 @@
+.git
+.gemini
+.specify
+components/android
+components/cli
+components/mcp
+
+# Don't ignore the target directory itself, just its contents
+components/**/target/*
+# But DO allow the brain.wasm we need
+!components/brain/target/wasm32-wasip1/release/brain.wasm
