@@ -1,0 +1,49 @@
+# Binaries and executables
+components/cli/useless
+components/operator/bin/
+**/bin/
+**/obj/
+
+# Rust / WASM
+**/target/
+**/*.wasm
+**/*.rs.bk
+
+# Go
+vendor/
+go.work
+go.work.sum
+
+# Python (uv/venv)
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Android
+.gradle/
+build/
+**/build/
+captures/
+*.apk
+*.aar
+*.jks
+*.keystore
+local.properties
+.navigation/
+assetPackDownloadFinished/
+.cxx/
+*.keystore
+!debug.keystore
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Project Specific
+.gemini/settings.json
+ca.crt
+get_helm.sh
