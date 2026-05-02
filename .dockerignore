@@ -1,0 +1,13 @@
+.git
+.gemini
+.specify
+components/android
+components/cli
+components/mcp
+
+# Ignore all target folders by default
+**/target/
+**/*.wasm
+
+# EXPLICITLY ALLOW the specific brain.wasm needed for the operator build
+!components/brain/target/wasm32-wasip1/release/brain.wasm
