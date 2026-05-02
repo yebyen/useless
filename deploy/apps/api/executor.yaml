@@ -1,0 +1,11 @@
+apiVersion: core.spinkube.dev/v1alpha1
+kind: SpinAppExecutor
+metadata:
+  name: spintainer-v4
+  namespace: default
+spec:
+  createDeployment: true
+  deploymentConfig:
+    installDefaultCACerts: true
+    caCertSecret: cluster-ca
+    spinImage: ghcr.io/spinframework/spin:v4.0.0

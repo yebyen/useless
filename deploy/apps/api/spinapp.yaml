@@ -1,0 +1,36 @@
+apiVersion: core.spinkube.dev/v1alpha1
+kind: SpinApp
+metadata:
+  name: useless-api
+  namespace: default
+spec:
+  image: "ttl.sh/useless-api-v0.0.2:1h"
+  executor: spintainer-v4
+  replicas: 1
+  variables:
+    - name: k8s_api_url
+      value: "https://kubernetes.default.svc"
+    - name: k8s_token
+      valueFrom:
+        secretKeyRef:
+          name: useless-api-token
+          key: token
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: useless-api
+  namespace: default
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: useless-api-admin
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin # MVP
+subjects:
+- kind: ServiceAccount
+  name: useless-api
+  namespace: default
