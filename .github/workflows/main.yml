@@ -85,10 +85,10 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: wasm-modules
-          path: .
+          path: components/
 
       - name: Debug - List Files
-        run: ls -R components/brain/target/
+        run: ls -R components/
 
       - name: Build and Push Operator
         uses: docker/build-push-action@v5
