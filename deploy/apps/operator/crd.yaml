@@ -14,7 +14,23 @@ spec:
     singular: uselessmachine
   scope: Namespaced
   versions:
-  - name: v1alpha1
+  - additionalPrinterColumns:
+    - description: Total number of button pushes today
+      jsonPath: .status.dailyCount
+      name: Count
+      type: integer
+    - description: ISO8601 timestamp of the last push
+      jsonPath: .status.lastPushed
+      name: Last Pushed
+      type: string
+    - description: Indicates if the user needs to be nagged
+      jsonPath: .status.isNagging
+      name: Nagging
+      type: boolean
+    - jsonPath: .metadata.creationTimestamp
+      name: Age
+      type: date
+    name: v1alpha1
     schema:
       openAPIV3Schema:
         description: UselessMachine is the Schema for the uselessmachines API
