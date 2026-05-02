@@ -45,8 +45,13 @@ Add the following to your Gemini/Claude settings:
 }
 ```
 
+## 🗺️ Roadmap (v0.1.0)
+*   **Real-time Client Updates (WebSockets/SSE):** Replace the Android app's 5-second HTTP polling with a persistent WebSocket or Server-Sent Events (SSE) connection to the Spin API. While serverless cloud platforms like Spin Cloud may restrict long-lived connections or scale-to-zero, running the API natively in Kubernetes via **SpinKube** gives us the flexibility to support persistent connections for real-time updates.
+*   **Upstream Contributions:** We currently use the `Spintainer` (`SpinAppExecutor`) as a concession to easily mount the Kubernetes CA certificate and ServiceAccount tokens into the Spin v4 runtime. Our goal is to contribute upstream to the `Runtime Class Manager` and `containerd-shim-spin` to seamlessly support standard Kubernetes CA certificate injection and OIDC authentication, bringing these capabilities natively to the WASM ecosystem.
+
 ## 📄 Documentation
-Detailed specs and architectural records are in the `.specify/` directory.
+*   [Architecture Details](ARCHITECTURE.md)
+*   Detailed specs and architectural records are in the `.specify/` directory.
 
 ---
-**Version:** 0.0.1 | **License:** MIT | *Built with Gemini CLI*
+**Version:** 0.0.2 | **License:** MIT | *Built with Gemini CLI*
