@@ -13,17 +13,11 @@ spec:
       labels:
         app: vind-box-operator
     spec:
+      serviceAccountName: vind-box-operator
       containers:
       - name: manager
-        image: ghcr.io/yebyen/vind-box-operator:v0.1.0
-        args:
-        - "--wasm-path=/etc/brain/brain.wasm"
-        volumeMounts:
-        - name: brain
-          mountPath: /etc/brain
-      volumes:
-      - name: brain
-        emptyDir: {} # For now, we assume an init container or sidecar provides it
+        image: vind-box-operator:v0.0.2
+        imagePullPolicy: IfNotPresent
 ---
 apiVersion: v1
 kind: ServiceAccount
