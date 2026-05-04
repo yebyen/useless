@@ -44,6 +44,16 @@ When a user executes `./useless push --backend api`, the following sequence occu
 6.  **Operator:** Updates the CRD's `status` with the new count and resets `spec.action` to empty (flipping the switch back off).
 7.  **CLI:** The user runs `./useless status`, which asks the API, which queries K8s, and shows the newly incremented count.
 
+## CI/CD Pipeline
+
+The project uses GitHub Actions for continuous integration and delivery. The pipeline is defined in `.github/workflows/main.yml` and performs the following:
+
+- **Automated Builds:** Compiles the Go CLI, Rust WASM Brain, Spin API, and Android app on every push and pull request.
+- **Testing:** Runs unit tests for all components.
+- **Binary Distribution:** On version tags (`v*`), the pipeline uploads the CLI binary, WASM modules, and Android APK as release artifacts.
+- **Container Publishing:** Builds the `vind-box-operator` OCI image with the embedded Brain and pushes it to the GitHub Container Registry (GHCR).
+- **GitOps Integration:** Pushes the `deploy/` directory as a Flux OCI artifact to GHCR, enabling automated GitOps deployments.
+
 ## Concessions & Upstream Contributions (v0.0.2 to v0.1.0)
 
 During the implementation of version 0.0.2, we discovered a gap in the SpinKube ecosystem regarding Kubernetes API authentication.

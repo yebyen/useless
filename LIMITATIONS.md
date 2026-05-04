@@ -2,22 +2,17 @@
 
 This document tracks known architectural limitations and blockers.
 
-## Kubernetes API Access from Spin Components (TLS Verification Failure)
+## Kubernetes API Access from Spin Components (Resolved via Spintainer Concession)
 
-In our experiment (preserved in `5851e04`), we attempted to call the Kubernetes API directly from a Spin app deployed via SpinKube.
+In our initial experiments, we encountered a TLS verification failure when attempting to call the Kubernetes API (`kubernetes.default.svc`) from a Spin app. This was because the Spin/Wasm runtime lacked a way to verify the cluster's internal CA.
 
-### The Problem
-Spin enforces secure TLS for all outbound HTTPS calls. When running inside a Kubernetes cluster, the API server (`kubernetes.default.svc`) uses a certificate signed by the internal cluster CA. 
+### The Solution (v0.0.2)
+We have resolved this for the v0.0.2 release by utilizing the **Spintainer (`SpinAppExecutor`)** workaround. By deploying the Spin API as a standard Kubernetes container (using the `ghcr.io/spinframework/spin:v4.0.0` image), we are able to:
+1.  **Mount the CA Certificate:** Inject the cluster's root CA into the container's standard certificate store.
+2.  **ServiceAccount Token Injection:** Securely mount the Kubernetes ServiceAccount token for authentication.
 
-Currently, there is no standardized way to inject this CA certificate into the Spin/Wasm runtime environment such that the HTTP client can verify the API server's identity. This prevents Spin components from interacting directly with the Kubernetes API within the cluster.
-
-### Impact
-This blocks deploying the full "Zero-Split-Brain" architecture that relies on Spin components to interact with the cluster state directly. It is not an urgent blocker for local development but will prevent production-ready deployments of these specific components.
-
-### Possible Workarounds
-1.  **TLS-Terminated Proxy:** Use a proxy for the Kube API (e.g., a sidecar or a dedicated gateway) that is appropriately TLS-terminated with a certificate from a known, trusted CA.
-2.  **CA Injection:** Wait for or implement support in SpinKube/containerd-shim-spin for CA certificate injection into the runtime.
-3.  **Bridge Component:** Use a traditional container-based component (e.g., a Go operator or Python service) that has access to the cluster CA to act as a bridge for Spin components.
+### Long-term Goal
+While the Spintainer approach unblocks us, it is a concession. We aim to contribute upstream to the **SpinKube/containerd-shim-spin** project to enable native CA certificate injection directly into the Wasm runtime, eliminating the need for a containerized wrapper.
 
 ---
-*Last updated: March 29, 2026*
+*Last updated: May 2, 2026*

@@ -25,10 +25,21 @@ go run main.go --wasm-path=../brain/target/wasm32-wasip1/release/brain.wasm
 ```
 
 ### Run the API (Spin)
+#### Local Development
 ```bash
+# Start a local K8s proxy
+kubectl proxy --port=8001 &
+# Run Spin locally
 cd components/api/api
 spin up --variable k8s_api_url=http://localhost:8001
 ```
+
+#### Kubernetes Deployment
+The API is deployed to Kubernetes as a `SpinApp` using the **Spintainer** executor to handle CA certificate verification.
+```bash
+kubectl apply -f deploy/apps/api/
+```
+For detailed deployment instructions, see [ARCHITECTURE.md](ARCHITECTURE.md).
 
 ### Use the CLI
 ```bash
