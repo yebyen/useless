@@ -107,7 +107,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-operator
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/operator
 
       - name: Download WASM Brain
         uses: actions/download-artifact@v4
@@ -130,6 +130,9 @@ jobs:
     needs: publish-images
     if: startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
       - uses: actions/checkout@v4
       - name: Setup Flux CLI
@@ -144,7 +147,7 @@ jobs:
 
       - name: Push Manifests as OCI Artifact
         run: |
-          flux push artifact oci://${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-manifests:${{ github.ref_name }} \
+          flux push artifact oci://${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/manifests:${{ github.ref_name }} \
             --path="./deploy" \
             --source="${{ github.event.repository.html_url }}" \
             --revision="${{ github.sha }}"
