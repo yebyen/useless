@@ -123,6 +123,8 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          provenance: false
+          id-token: write # Required for attestations if enabled, but we are disabling
 
   publish-flux-manifests:
     needs: publish-images
